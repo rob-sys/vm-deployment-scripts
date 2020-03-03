@@ -13,6 +13,9 @@
     },
     "scriptUrl": {
       "type": "string"
+    },
+    "tags": {
+      "type": "object"
     }
   },
   "variables": {},
@@ -22,9 +25,7 @@
       "name": "[concat(parameters('virtualMachineName'), '/' ,parameters('virtualMachineName'), 'installGW')]",
       "apiVersion": "2017-03-30",
       "location": "[parameters('existingVnetLocation')]",
-      "tags": {
-        "vmname": "[parameters('virtualMachineName')]"
-      },
+      "tags": "[parameters('tags')]",
       "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
